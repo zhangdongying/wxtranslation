@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-08-31 02:39+0300\n"
+"PO-Revision-Date: 2006-08-31 02:46+0200\n"
+"Last-Translator: Volodymir (T-Rex) Tryapichko <t-rex@mail.zp.ua>\n"
+"Language-Team: LANGUAGE <t-rex@mail.zp.ua>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=windows-1251\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Ukrainian\n"
+"X-Poedit-Country: UKRAINE\n"
+
+msgid "*.*"
+msgstr "*.*"
+
+msgid ".mo"
+msgstr ".mo"
+
+msgid "About..."
+msgstr "Про програму..."
+
+msgid "Add new item to document"
+msgstr "Додати новий рядок у документ"
+
+msgid "Array of language names and identifiers should have the same size."
+msgstr "Масиви назв та ідентифікаторів мов повинні мати однаковий розмір."
+
+msgid "Change some data"
+msgstr "Змінити деякі дані"
+
+msgid "Default"
+msgstr "За замовчанням"
+
+msgid "Document"
+msgstr "Документ"
+
+msgid "Exit\tAlt+F4"
+msgstr "Вихід\tAlt+F4"
+
+msgid "File"
+msgstr "Файл"
+
+msgid "Help"
+msgstr "Допомога"
+
+msgid "Language"
+msgstr "Мова"
+
+msgid "Select the language"
+msgstr "Вибір мови"
+
+msgid "Status Bar"
+msgstr "Рядок статусу"
+
+msgid "View"
+msgstr "Вид"
+
+msgid "wxTranslation Test"
+msgstr "wxTranslation Тест"
+
+#, possible-c-format
+msgid "wxTranslationHelper: Catalog Name = \"%s\""
+msgstr "wxTranslationHelper: Назва каталогу = \"%s\""
+
+#, possible-c-format
+msgid "wxTranslationHelper: Directory found = \"%s\""
+msgstr "wxTranslationHelper: Каталог знайдено = \"%s\""
+
+#, possible-c-format
+msgid "wxTranslationHelper: Path Prefix = \"%s\""
+msgstr "wxTranslationHelper: Префікс шляху = \"%s\""
+
+msgid "wxTranslation_Language"
+msgstr "wxTranslation_Language"
+
