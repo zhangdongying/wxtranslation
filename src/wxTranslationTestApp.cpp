@@ -1,4 +1,6 @@
-#include <wx/wxTranslationHelper/wxTranslationHelper.h>
+#include "wxTranslationTestApp.h"
+#include "wxTranslationTestMainFrame.h"
+#include <wx/filename.h>
 #include <wx/dir.h>
 #include <wx/config.h>
 #include <wx/fileconf.h>
@@ -144,7 +146,7 @@ void wxTranslationHelper::GetInstalledLanguages(wxArrayString & names,
 	if(!wxDir::Exists(m_SearchPath)) 
 	{
 		
-		wxLogTrace("F:\GitHub\examples\wxtranslation\bin\en\wxTranslation.mo", _("Directory %s DOES NOT EXIST !!!"),
+		wxLogTrace("c:\wxtranslation\bin\en\wxTranslation.mo", _("Directory %s DOES NOT EXIST !!!"),
 			m_SearchPath.GetData());
 		return;
 	}
@@ -203,4 +205,60 @@ bool wxTranslationHelper::AskUserForLanguage(wxArrayString & names,
 		return true;
 	}
 	return false;
+}
+
+
+IMPLEMENT_APP(wxTranslationTestApp)
+
+bool wxTranslationTestApp::OnInit()
+{
+	wxFileName appFileName(argv[0]);
+	appFileName.Normalize(wxPATH_NORM_DOTS|wxPATH_NORM_ABSOLUTE|
+		wxPATH_NORM_TILDE);
+	m_TranslationHelper = new wxTranslationHelper(*this, appFileName.GetPath(), false);
+	wxString path = appFileName.GetPath()+
+		wxFileName::GetPathSeparator()+
+		GetAppName()+wxT(".ini");
+	m_TranslationHelper->SetConfigPath(path);
+	m_TranslationHelper->Load();
+	RecreateGUI();
+	return true;
+}
+
+int wxTranslationTestApp::OnExit()
+{
+	if(m_TranslationHelper)
+	{
+		wxDELETE(m_TranslationHelper);
+	}
+	return 0;
+}
+
+wxArrayString & wxTranslationTestApp::GetDocument()
+{
+	return m_SomeKindOfDocument;
+}
+
+bool wxTranslationTestApp::SelectLanguage()
+{
+	wxArrayString names;
+	wxArrayLong identifiers;	
+
+	m_TranslationHelper->GetInstalledLanguages(names, identifiers);
+	bool res = m_TranslationHelper->AskUserForLanguage(names, identifiers);	
+	return res;
+}
+
+void wxTranslationTestApp::RecreateGUI()
+{
+	wxWindow * topwindow = GetTopWindow();
+	if(topwindow)
+	{
+		SetTopWindow(NULL);
+		topwindow->Destroy();
+	}
+	wxTranslationTestMainFrame * frame = new wxTranslationTestMainFrame;
+	SetTopWindow(frame);
+	frame->Centre();
+	frame->Show();
 }

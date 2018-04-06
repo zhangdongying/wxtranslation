@@ -1,2 +1,0 @@
-wxTranslationTestApp.cpp
-wxTranslationTestMainFrame.cpp

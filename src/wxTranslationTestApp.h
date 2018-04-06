@@ -1,5 +1,5 @@
-#ifndef _WX_TRANSLATION_HELPER_H
-#define _WX_TRANSLATION_HELPER_H
+#ifndef _WX_TRANSLATION_TEST_APP_H
+#define _WX_TRANSLATION_TEST_APP_H
 
 #include <wx/wx.h>
 #include <wx/intl.h>
@@ -26,5 +26,19 @@ public:
 	const wxString & GetConfigPath();
 	void SetConfigPath(wxString &);
 };
+
+class wxTranslationTestApp : public wxApp
+{
+	wxTranslationHelper * m_TranslationHelper;
+	wxArrayString m_SomeKindOfDocument;
+public:
+	virtual bool OnInit();
+	virtual int OnExit();
+	void RecreateGUI();
+	bool SelectLanguage();
+	wxArrayString & GetDocument();
+};
+
+DECLARE_APP(wxTranslationTestApp);
 
 #endif
